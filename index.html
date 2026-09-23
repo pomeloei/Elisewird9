@@ -5,49 +5,112 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Elise wird 9 🎉</title>
 <style>
-:root{--ink:#27243a;--paper:#fffaf4;--card:#fff;--shadow:0 12px 30px rgba(55,40,80,.10)}
-*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#fff7fb 0,#fffaf4 100%);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.wrap{max-width:900px;margin:auto;padding:28px 18px 50px}
-.hero{text-align:center;padding:28px 10px 18px}
+:root{--ink:#27243a;--muted:#777184;--bg:#fff8fc;--card:#fff;--shadow:0 12px 30px rgba(55,40,80,.10)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff7fb,#fffaf4);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{max-width:900px;margin:auto;padding:25px 17px 50px}.hero{text-align:center;padding:20px 5px 12px}
 h1{font-size:clamp(3rem,12vw,6.5rem);line-height:.95;margin:0 0 18px;font-weight:900;letter-spacing:-.06em}
-h1 span:nth-child(1){color:#ff5c8a} h1 span:nth-child(2){color:#ffb52e} h1 span:nth-child(3){color:#55c99a} h1 span:nth-child(4){color:#6d8cff} h1 span:nth-child(5){color:#b56cff} h1 span:nth-child(6){color:#ff6b5f}
-.sub{font-size:1.08rem;line-height:1.6}.pill{display:inline-block;background:#fff;border-radius:999px;padding:8px 13px;margin:4px;box-shadow:0 5px 15px rgba(55,40,80,.08)}
-.intro{background:#fff;border-radius:24px;padding:20px 22px;margin:18px 0 26px;box-shadow:var(--shadow);text-align:center;font-size:1rem;line-height:1.6}
+h1 span:nth-child(1){color:#ff5c8a}h1 span:nth-child(2){color:#ffb52e}h1 span:nth-child(3){color:#55c99a}h1 span:nth-child(4){color:#6d8cff}h1 span:nth-child(5){color:#b56cff}h1 span:nth-child(6){color:#ff6b5f}
+.sub{font-size:1.05rem;line-height:1.6}.pill{display:inline-block;background:#fff;border-radius:999px;padding:8px 13px;margin:4px;box-shadow:0 5px 15px rgba(55,40,80,.08)}
+.intro{background:#fff;border-radius:24px;padding:19px 21px;margin:18px 0 25px;box-shadow:var(--shadow);text-align:center;line-height:1.55}
+.status{font-size:.9rem;margin-top:9px;color:#5d5968}.online{color:#2b8a57;font-weight:700}.offline{color:#b25b36;font-weight:700}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.card{background:var(--card);border-radius:22px;padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:205px;border:1px solid rgba(50,40,80,.05)}
-.icon{font-size:2.1rem}.card h2{font-size:1.1rem;margin:10px 0 7px}.card p{margin:0 0 18px;color:#696579;line-height:1.45;flex:1}
-a{display:block;text-align:center;text-decoration:none;background:#27243a;color:#fff;padding:12px 15px;border-radius:13px;font-weight:750}
-a:hover{transform:translateY(-1px)}
+.card{background:var(--card);border-radius:22px;padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:230px;border:1px solid rgba(50,40,80,.05)}
+.icon{font-size:2.1rem}.card h2{font-size:1.1rem;margin:10px 0 7px}.card p{margin:0 0 17px;color:var(--muted);line-height:1.45;flex:1}
+.buy{display:block;text-align:center;text-decoration:none;background:#27243a;color:#fff;padding:12px 15px;border-radius:13px;font-weight:750}
+.claim{margin-top:9px;border:0;width:100%;padding:11px 15px;border-radius:13px;background:#f3e9ff;color:#5b3b76;font-weight:800;cursor:pointer;font-size:.95rem}
+.claim.taken{background:#dff7e9;color:#246443}.claim:disabled{cursor:default}
 footer{text-align:center;color:#817b8f;margin-top:28px;font-size:.9rem}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header class="hero">
-  <h1><span>E</span><span>l</span><span>i</span><span>s</span><span>e</span> <span>wird 9</span></h1>
-  <div class="sub">
-    <span class="pill">🎂 25. Oktober</span>
-    <span class="pill">🕘 09:45–11:00 Uhr</span>
-    <span class="pill">📍 BoulderWelt Süd</span>
-  </div>
+<h1><span>E</span><span>l</span><span>i</span><span>s</span><span>e</span> <span>wird 9</span></h1>
+<div class="sub"><span class="pill">🎂 25. Oktober</span><span class="pill">🕘 09:45–11:00 Uhr</span><span class="pill">📍 BoulderWelt Süd</span></div>
 </header>
 
 <section class="intro">
-  <strong>🎁 Elises Geburtstags-Wunschliste</strong><br>
-  Wenn du Elise eine Freude machen möchtest, findest du hier ein paar ihrer Wünsche.
-  Vielen Dank fürs Aussuchen und Mitfeiern! 💕
+<strong>🎁 Elises Geburtstags-Wunschliste</strong><br>
+Wenn du Elise eine Freude machen möchtest, findest du hier ihre Wünsche.
+Wähle ein Geschenk aus und übernimm es – <strong>alle Eltern sehen die Änderung live.</strong>
+<div id="status" class="status">Verbindung wird hergestellt …</div>
 </section>
 
 <section class="grid">
-  <article class="card"><div class="icon">📖</div><h2>Der Tag, an dem das Internet kaputtging</h2><p>Ein spannendes Buch für Elise.</p><a href="https://www.amazon.de/Tag-dem-Internet-kaputt-gemacht/dp/3551516790" target="_blank" rel="noopener">Bei Amazon ansehen →</a></article>
-  <article class="card"><div class="icon">📚</div><h2>Ein weiterer Bücherwunsch</h2><p>Ein Buch aus Elises Wunschliste.</p><a href="https://www.amazon.de/gp/aw/d/3505152668/" target="_blank" rel="noopener">Bei Amazon ansehen →</a></article>
-  <article class="card"><div class="icon">📚</div><h2>Noch ein Bücherwunsch</h2><p>Ein weiterer Lesewunsch für Elise.</p><a href="https://www.amazon.de/gp/aw/d/3505152684/" target="_blank" rel="noopener">Bei Amazon ansehen →</a></article>
-  <article class="card"><div class="icon">🎲</div><h2>Scrabble® Familienspiel</h2><p>Wortspielspaß für die ganze Familie.</p><a href="https://www.amazon.de/Scrabble%C2%AE-Familienspiel-Wortspiel-Spielmodi-Zielkarten/dp/B0CQP5WFNV/" target="_blank" rel="noopener">Bei Amazon ansehen →</a></article>
-  <article class="card"><div class="icon">🖤</div><h2>Kuromi Armbänder &amp; Anhänger</h2><p>Süße Kuromi-Accessoires zum Geburtstag.</p><a href="https://www.amazon.de/Armb%C3%A4nder-Anh%C3%A4nger-PQKL-party-Geburtstag-Weihnachten/dp/B0D1R8QPCQ/" target="_blank" rel="noopener">Bei Amazon ansehen →</a></article>
-  <article class="card"><div class="icon">📖</div><h2>Ein weiterer Bücherwunsch</h2><p>Ein weiterer Wunsch aus Elises Liste.</p><a href="https://www.amazon.de/dp/B0CF5BHR2J" target="_blank" rel="noopener">Bei Amazon ansehen →</a></article>
+<article class="card" data-gift="internet"><div class="icon">📖</div><h2>Der Tag, an dem das Internet kaputtging</h2><p>Ein spannendes Buch für Elise.</p><a class="buy" href="https://www.amazon.de/Tag-dem-Internet-kaputt-gemacht/dp/3551516790" target="_blank" rel="noopener">Bei Amazon ansehen →</a><button class="claim">🎁 Ich übernehme dieses Geschenk</button></article>
+<article class="card" data-gift="buch-2"><div class="icon">📚</div><h2>Ein weiterer Bücherwunsch</h2><p>Ein Buch aus Elises Wunschliste.</p><a class="buy" href="https://www.amazon.de/gp/aw/d/3505152668/" target="_blank" rel="noopener">Bei Amazon ansehen →</a><button class="claim">🎁 Ich übernehme dieses Geschenk</button></article>
+<article class="card" data-gift="buch-3"><div class="icon">📚</div><h2>Noch ein Bücherwunsch</h2><p>Ein weiterer Lesewunsch für Elise.</p><a class="buy" href="https://www.amazon.de/gp/aw/d/3505152684/" target="_blank" rel="noopener">Bei Amazon ansehen →</a><button class="claim">🎁 Ich übernehme dieses Geschenk</button></article>
+<article class="card" data-gift="scrabble"><div class="icon">🎲</div><h2>Scrabble® Familienspiel</h2><p>Wortspielspaß für die ganze Familie.</p><a class="buy" href="https://www.amazon.de/Scrabble%C2%AE-Familienspiel-Wortspiel-Spielmodi-Zielkarten/dp/B0CQP5WFNV/" target="_blank" rel="noopener">Bei Amazon ansehen →</a><button class="claim">🎁 Ich übernehme dieses Geschenk</button></article>
+<article class="card" data-gift="kuromi"><div class="icon">🖤</div><h2>Kuromi Armbänder &amp; Anhänger</h2><p>Süße Kuromi-Accessoires zum Geburtstag.</p><a class="buy" href="https://www.amazon.de/Armb%C3%A4nder-Anh%C3%A4nger-PQKL-party-Geburtstag-Weihnachten/dp/B0D1R8QPCQ/" target="_blank" rel="noopener">Bei Amazon ansehen →</a><button class="claim">🎁 Ich übernehme dieses Geschenk</button></article>
+<article class="card" data-gift="buch-6"><div class="icon">📖</div><h2>Ein weiterer Bücherwunsch</h2><p>Ein weiterer Wunsch aus Elises Liste.</p><a class="buy" href="https://www.amazon.de/dp/B0CF5BHR2J" target="_blank" rel="noopener">Bei Amazon ansehen →</a><button class="claim">🎁 Ich übernehme dieses Geschenk</button></article>
 </section>
 
+<section class="intro" style="margin-top:18px">
+<strong>💝 So funktioniert es</strong><br>
+Auf „Ich übernehme dieses Geschenk“ tippen, Namen eingeben – danach sehen alle anderen Eltern sofort, dass das Geschenk bereits übernommen wurde.
+</section>
 <footer>Made with 💕 für Elises 9. Geburtstag</footer>
 </div>
+
+<script type="module">
+/*
+  Firebase-Konfiguration eintragen – siehe SETUP.md.
+*/
+const firebaseConfig = {
+  apiKey: "DEINE_API_KEY",
+  authDomain: "DEIN-PROJEKT.firebaseapp.com",
+  databaseURL: "https://DEIN-PROJEKT-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "DEIN-PROJEKT",
+  storageBucket: "DEIN-PROJEKT.firebasestorage.app",
+  messagingSenderId: "DEINE_MESSAGING_SENDER_ID",
+  appId: "DEINE_APP_ID"
+};
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+import { getDatabase, ref, onValue, set, remove } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
+
+const status = document.getElementById("status");
+const configured = !Object.values(firebaseConfig).some(v => String(v).includes("DEINE_") || String(v).includes("DEIN-PROJEKT"));
+
+if (!configured) {
+  status.innerHTML = '<span class="offline">Noch nicht verbunden.</span> Bitte Firebase-Konfiguration aus SETUP.md eintragen.';
+} else {
+  try {
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    await signInAnonymously(auth);
+    status.innerHTML = '<span class="online">● Live verbunden</span> · Änderungen werden für alle synchronisiert.';
+
+    document.querySelectorAll(".card").forEach(card => {
+      const id = card.dataset.gift;
+      const button = card.querySelector(".claim");
+      const giftRef = ref(db, "gifts/" + id);
+
+      onValue(giftRef, snap => {
+        const data = snap.val();
+        if (data && data.name) {
+          button.textContent = "✓ Übernommen von " + data.name;
+          button.classList.add("taken");
+        } else {
+          button.textContent = "🎁 Ich übernehme dieses Geschenk";
+          button.classList.remove("taken");
+        }
+      });
+
+      button.addEventListener("click", async () => {
+        const name = prompt("Wie heißt du?");
+        if (!name || !name.trim()) return;
+        await set(giftRef, {name: name.trim(), updatedAt: Date.now()});
+      });
+    });
+  } catch (err) {
+    console.error(err);
+    status.innerHTML = '<span class="offline">Verbindung fehlgeschlagen.</span> Bitte Firebase-Einstellungen prüfen.';
+  }
+}
+</script>
 </body>
 </html>
